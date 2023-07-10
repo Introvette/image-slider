@@ -1,5 +1,7 @@
 const arr = [];
-
+const props = {
+    "main" : $(".container")
+}
 $(document).ready(function(){
     console.log('doc ready');
     makelistImages();
@@ -9,10 +11,10 @@ $(document).ready(function(){
 function outputImages() {
     $.each(arr,function(index, value){
         console.log(value);
-        let tempActive = index == 1 ? 'active': '';
+        let tempActive = index == 0 ? 'active': '';
         console.log(tempActive);
-        let html = `<img src='${value}'>`;
-        $('.container').append(html);
+        let html = `<div class="slide ${tempActive}"><img src='${value}'<span>Caption ${index+1}</span></div>`;
+        props.main.append(html);
     })
 }
 
